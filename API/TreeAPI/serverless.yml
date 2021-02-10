@@ -62,14 +62,24 @@ plugins:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: built/handler.hello
+  addPerson:
+    handler: built/addPerson.handler
+    events:
+      - httpApi:
+        path: /person
+        method: post
+#    Define function environment variables here
+   environment:
+#      variable2: value2
+
+  # getPerson:
+  #   handler: built/addPerson.handler
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
   #  events:
   #    - httpApi:
-  #        path: /users/create
+  #        path: /person
   #        method: get
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
